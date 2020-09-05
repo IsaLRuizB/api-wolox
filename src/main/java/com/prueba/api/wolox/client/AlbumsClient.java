@@ -1,6 +1,6 @@
 package com.prueba.api.wolox.client;
 
-import com.prueba.dominio.dominiodto.dto.Album;
+import com.prueba.api.wolox.dto.Album;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

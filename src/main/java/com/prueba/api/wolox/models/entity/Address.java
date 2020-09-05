@@ -1,6 +1,6 @@
 package com.prueba.api.wolox.models.entity;
 
-import com.prueba.dominio.dominiodto.dto.Geo;
+
 
 import javax.persistence.*;
 
@@ -15,7 +15,9 @@ public class Address {
         private String suite;
         private String city;
         private String zipcode;
-    //    private Geo geo;
+        @OneToOne(cascade = CascadeType.ALL)
+        @JoinColumn(name = "id", referencedColumnName = "id")
+        private Geo geo;
 
 
     public Long getId() {
@@ -58,13 +60,13 @@ public class Address {
         this.zipcode = zipcode;
     }
 
-  /*  public Geo getGeo() {
+    public Geo getGeo() {
         return geo;
     }
 
     public void setGeo(Geo geo) {
         this.geo = geo;
-    }*/
+    }
 
 
 }

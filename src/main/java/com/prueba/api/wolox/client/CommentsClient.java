@@ -1,7 +1,7 @@
 package com.prueba.api.wolox.client;
 
 
-import com.prueba.dominio.dominiodto.dto.Comments;
+import com.prueba.api.wolox.dto.Comments;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

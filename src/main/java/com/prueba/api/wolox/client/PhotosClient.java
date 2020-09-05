@@ -1,12 +1,10 @@
 package com.prueba.api.wolox.client;
 
-import com.prueba.dominio.dominiodto.dto.Comments;
-import com.prueba.dominio.dominiodto.dto.Photos;
+import com.prueba.api.wolox.dto.Photos;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 @Component

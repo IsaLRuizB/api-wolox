@@ -1,13 +1,7 @@
 package com.prueba.api.wolox.models.entity;
 
-import com.prueba.dominio.dominiodto.dto.Address;
-import com.prueba.dominio.dominiodto.dto.Company;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.Id;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import javax.persistence.*;
 
 @Entity
 @Table(name= "usuario")
@@ -20,10 +14,15 @@ public class User {
     private String name;
     private String username;
     private String email;
-  //  private Address address;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id", referencedColumnName = "id")
+     private Address address;
     private String phone;
     private String webSite;
-  //  private Company company;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id", referencedColumnName = "id")
+    private Company company;
 
     public Long getId() {
         return id;
@@ -57,13 +56,13 @@ public class User {
         this.email = email;
     }
 
-   /* public Address getAddress() {
+   public Address getAddress() {
         return address;
     }
 
    public void setAddress(Address address) {
         this.address = address;
-    }*/
+    }
 
     public String getPhone() {
         return phone;
@@ -80,12 +79,12 @@ public class User {
     public void setWebSite(String webSite) {
         this.webSite = webSite;
     }
-/*
+
     public Company getCompany() {
         return company;
     }
 
     public void setCompany(Company company) {
         this.company = company;
-    }*/
+    }
 }

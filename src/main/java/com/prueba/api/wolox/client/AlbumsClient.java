@@ -22,7 +22,6 @@ public class AlbumsClient {
 
 
     public Album[]  getAlbums(){
-       restTemplate= new RestTemplate();
         ResponseEntity<Album[]> response = restTemplate.getForEntity(url, Album[].class);
         return response.getStatusCode() == HttpStatus.OK ? response.getBody() : null;
     }

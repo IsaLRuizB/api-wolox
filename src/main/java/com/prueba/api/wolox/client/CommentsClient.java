@@ -22,7 +22,6 @@ public class CommentsClient {
     }
 
     public Comments[] getComments (){
-        restTemplate= new RestTemplate();
         ResponseEntity<Comments[]> response = restTemplate.getForEntity(url, Comments[].class);
         return response.getStatusCode() == HttpStatus.OK ? response.getBody() : null;
         }

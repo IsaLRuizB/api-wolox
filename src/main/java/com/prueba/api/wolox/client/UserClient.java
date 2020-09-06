@@ -31,7 +31,7 @@ public class UserClient {
     }
 
     public List<User> getUsers(){
-       // restTemplate= new RestTemplate();
+
         ResponseEntity<List<User>> response = restTemplate.exchange(url, HttpMethod.GET, null, new ParameterizedTypeReference<List<User>>() {});
 
         return response.getStatusCode() == HttpStatus.OK ? response.getBody() : null;

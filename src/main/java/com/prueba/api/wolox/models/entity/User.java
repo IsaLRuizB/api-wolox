@@ -14,7 +14,6 @@ public class User {
     private String name;
     private String username;
     private String email;
-
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id", referencedColumnName = "id")
      private Address address;
@@ -23,6 +22,9 @@ public class User {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id", referencedColumnName = "id")
     private Company company;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id", referencedColumnName = "id")
+    private Permiso permiso;
 
     public Long getId() {
         return id;
@@ -86,5 +88,13 @@ public class User {
 
     public void setCompany(Company company) {
         this.company = company;
+    }
+
+    public Permiso getPermiso() {
+        return permiso;
+    }
+
+    public void setPermiso(Permiso permiso) {
+        this.permiso = permiso;
     }
 }

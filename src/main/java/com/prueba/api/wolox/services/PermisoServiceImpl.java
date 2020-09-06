@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -42,5 +43,10 @@ public class PermisoServiceImpl implements PermisoService{
     @Override
     public Optional<Permiso> findByIdUserCompAndIdUserAndIdAlbum(Long idUserCpomp, Long idUser, Long idAlbum) {
         return permisoRepository.findByIdUserCompAndIdUserAndIdAlbum(idUserCpomp, idUser, idAlbum);
+    }
+
+    @Override
+    public List<Long> findByIdAlbumAndPermiso(Long idAlbum, char tipoPermiso) {
+        return permisoRepository.findByIdAlbumAndPermiso(idAlbum,tipoPermiso);
     }
 }

@@ -1,3 +1,24 @@
+CREATE TABLE IF NOT EXISTS `permiso` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `id_album` bigint(20) NOT NULL,
+  `id_user` bigint(20) NOT NULL,
+  `id_user_comp` bigint(20) NOT NULL,
+  `tipo_permiso` char(1) NOT NULL,
+  PRIMARY KEY (`id`)
+);
+
+CREATE TABLE IF NOT EXISTS `usuario` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `email` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `phone` varchar(255) DEFAULT NULL,
+  `username` varchar(255) DEFAULT NULL,
+  `web_site` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+);
+
+
+
 INSERT INTO `usuario` (`id`, `email`, `name`, `phone`, `username`, `web_site`) VALUES
 	(1, 'Sincere@april.biz', 'Leanne Graham', '1-770-736-8031 x56442', 'Bret', NULL),
 	(2, 'Shanna@melissa.tv', 'Ervin Howell', '010-692-6593 x09125', 'Antonette', NULL),

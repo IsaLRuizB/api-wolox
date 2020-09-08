@@ -33,12 +33,16 @@ public class ApiController {
         if(result.hasErrors()) {
             return this.validar(result);
         }
-       if (!permisoService.findByIdUserCompAndIdUserAndIdAlbum(entity.getIdUserComp(),entity.getIdUser(), entity.getIdAlbum()).isPresent()){
-           Permiso entityDB = permisoService.save(entity);
-           return ResponseEntity.status(HttpStatus.CREATED).body(entityDB);
-       }
+        if (!entity.getIdUserComp().equals(entity.getIdUser())) {
+            if (!permisoService.findByIdUserCompAndIdUserAndIdAlbum(entity.getIdUserComp(), entity.getIdUser(), entity.getIdAlbum()).isPresent()) {
+                Permiso entityDB = permisoService.save(entity);
+                return ResponseEntity.status(HttpStatus.CREATED).body(entityDB);
+            }else{
+                return new ResponseEntity<>("Este usuario ya posee permisos en este album ", HttpStatus.NOT_FOUND);
+            }
+        }
 
-           return new ResponseEntity<>("Este usuario ya posee permisos en este album ", HttpStatus.NOT_FOUND);
+           return new ResponseEntity<>("El usuario compartido no puede ser el mismo dueño ", HttpStatus.NOT_FOUND);
     }
 
 

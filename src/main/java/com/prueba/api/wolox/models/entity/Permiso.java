@@ -1,6 +1,7 @@
 package com.prueba.api.wolox.models.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
@@ -14,8 +15,10 @@ public class Permiso {
     @NotNull
     private Long idUser;
     @NotNull
+    @Min(1)
     private Long idUserComp;
     @NotNull
+    @Min(1)
     private Long idAlbum;
 
     @NotNull

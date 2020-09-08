@@ -74,7 +74,7 @@ public class ClientController {
                 .filter(album -> album.getUserId() == idUser)
                 .map(album -> album.getId())
                 .collect(Collectors.toList());
-        System.out.println(listIdAlbumes);
+
         //se obtienen las photos
         List<Photos> listPhotos = Arrays.asList(photosClient.getPhotos());
         //se filtran las photos por el id del album
@@ -82,7 +82,7 @@ public class ClientController {
                 .stream()
                 .filter(photo -> listIdAlbumes.stream().anyMatch(idAlbum -> photo.getAlbumId().equals(idAlbum)))
                 .collect(Collectors.toList());
-        System.out.println(listResultPhotos);
+
         return ResponseEntity.ok(listResultPhotos);
     }
 
@@ -109,7 +109,7 @@ public class ClientController {
                 .filter(post -> post.getUserId() == idUser)
                 .map(post -> post.getId())
                 .collect(Collectors.toList());
-        System.out.println(listIdPost);
+
         //se obtienen los comentarios
         List<Comments> listComments = Arrays.asList(commentsClient.getComments());
         //se filtran los comenatrios por el id del post
@@ -117,7 +117,9 @@ public class ClientController {
                 .stream()
                 .filter(comment -> listIdPost.stream().anyMatch(idPost -> comment.getPostId().equals(idPost)))
                 .collect(Collectors.toList());
-        System.out.println(listResulComments);
+
         return ResponseEntity.ok(listResulComments);
     }
+
+    
 }

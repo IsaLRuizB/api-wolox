@@ -36,6 +36,6 @@ public class AlbumServiceImpl implements AlbumService{
 
     @Override
     public void deleteById(Long id) {
-
+        albumRepository.deleteById(id);
     }
 }

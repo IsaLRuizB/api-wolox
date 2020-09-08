@@ -41,7 +41,6 @@ public class ApiController {
                 return new ResponseEntity<>("Este usuario ya posee permisos en este album ", HttpStatus.NOT_FOUND);
             }
         }
-
            return new ResponseEntity<>("El usuario compartido no puede ser el mismo dueño ", HttpStatus.NOT_FOUND);
     }
 
@@ -68,7 +67,7 @@ public class ApiController {
         List<Long> listIdUserComp =permisoService.findByIdAlbumAndPermiso(idAlbum,tipoPermiso);
 
         if (listIdUserComp.isEmpty()){
-            return new ResponseEntity<>("No se encontró información", HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>("No se encontro informacion", HttpStatus.NOT_FOUND);
 
         }
         List<User> usuarios= (List<User>) userService.findAll();
@@ -83,8 +82,6 @@ public class ApiController {
         return ResponseEntity.ok(listResult);
 
     }
-
-
 
     public ResponseEntity<?> validar(BindingResult result){
         Map<String,Object> errores=  new HashMap<>();
